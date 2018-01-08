@@ -2,8 +2,6 @@
 
 FROM alexcheng/apache2-php7:7.1.11
 
-
-
 RUN a2enmod rewrite
 
 ENV MAGENTO_VERSION 2.2.1
@@ -55,7 +53,7 @@ RUN echo "memory_limit=1024M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#Commented out the next 3 lines, because i don't see no use of this
+#Commented out the next 3 lines.
 WORKDIR /var/www/html
 #VOLUME /var/www/html/var
 #VOLUME /var/www/html/pub

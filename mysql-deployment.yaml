@@ -1,3 +1,4 @@
+# expose service
 apiVersion: v1
 kind: Service
 metadata:
@@ -26,7 +27,7 @@ spec:
       storage: 20Gi
 ---
 apiVersion: extensions/v1beta1
-kind: Deployment
+kind: Deployment #Single-instance MySQL Deployment
 metadata:
   name: magento2-mysql
   labels:

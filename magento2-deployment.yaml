@@ -1,3 +1,4 @@
+#This is to expose the pod
 apiVersion: v1
 kind: Service
 metadata:
@@ -10,21 +11,9 @@ spec:
   selector:
     app: magento2
     tier: frontend
-  type: NodePort
+  type: NodePort # Any services of type NodePort can be accessed over that IP address
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mg-pv-claim
-  labels:
-    app: magento2
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
----
+#This it to deploy magento2 container to Kubernetes
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -58,4 +47,3 @@ spec:
         ports:
         - containerPort: 80
           name: magento2
-    
