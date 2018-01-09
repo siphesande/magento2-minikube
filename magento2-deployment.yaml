@@ -1,4 +1,4 @@
-#This is to expose the pod
+# The following code is for single-instance magento2 Deployment and Service
 apiVersion: v1
 kind: Service
 metadata:
@@ -11,7 +11,7 @@ spec:
   selector:
     app: magento2
     tier: frontend
-  type: NodePort # Any services of type NodePort can be accessed over that IP address
+  type: NodePort #any service of type NodePort can be accessed over that IP address
 ---
 #This it to deploy magento2 container to Kubernetes
 apiVersion: extensions/v1beta1
@@ -34,7 +34,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: alexcheng/magento2
+      - image: alexcheng/magento2  #https://hub.docker.com/r/alexcheng/magento2/
         name: magento2
         env:
         - name: MAGENTO_DB_HOST
